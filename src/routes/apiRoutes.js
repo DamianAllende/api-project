@@ -61,4 +61,18 @@ apiRouter.get('/courses/:id', (req, res) => {
 	
 })
 
+
+// Tweets
+
+apiRouter.get('/tweets', function(req, res){
+	const db = req.app.locals.db
+
+	db
+		.select()
+		.table('tweets')
+		.then(function(data) {
+			res.json(data)
+		})
+});
+
 module.exports = apiRouter
